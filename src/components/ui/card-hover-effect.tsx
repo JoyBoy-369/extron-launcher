@@ -15,7 +15,6 @@ export const HoverEffect = ({
     title: string;
     logo: string;
     link: string;
-    rooms: string[];
   }[];
   className?: string;
 }) => {
@@ -79,16 +78,22 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card
-            className={item.link === "react" ? "bg-[#f7d9aa]" : "bg-[#8ac6d1]"}
+            className={
+              item.link === "embassy"
+                ? "bg-[#f7d9aa]"
+                : item.link === "btg"
+                  ? "bg-[#8ac6d1]"
+                  : item.link === "pune"
+                    ? "bg-[#b58fe0]"
+                    : "bg-[#7fc08d]"
+            }
           >
             <CardImage src={item.logo} link={item.link} />
             <CardTitle>{item.title}</CardTitle>
 
-            <CardDescription>
-              {item.rooms.map((room) => (
-                <p key={room}>{room}</p>
-              ))}
-            </CardDescription>
+            {/* <CardDescription> */}
+            {/*     <p key={room}>{room}</p> */}
+            {/* </CardDescription> */}
           </Card>
         </div>
       ))}

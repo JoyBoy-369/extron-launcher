@@ -17,15 +17,23 @@ export default App;
 
 export const projects = [
   {
-    title: "App 1",
+    title: "Embassy Crest",
     logo: "./react.svg",
-    link: "react",
-    rooms: ["EC 1 & 2", "Pune Congo 5th,6th floor"],
+    link: "embassy",
   },
   {
-    title: "App 2",
+    title: "BTG",
     logo: "./vite.svg",
-    link: "vite",
-    rooms: ["BTG", "Pune Congo 7th floor"],
+    link: "btg",
+  },
+  {
+    title: "Pune 4,5 & 6",
+    logo: "./react.svg",
+    link: "pune",
+  },
+  {
+    title: "Pune 7th floor",
+    logo: "./vite.svg",
+    link: "7th",
   },
 ];
