@@ -3,9 +3,14 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="flex flex-col items-center">
-        <div className="max-w-3xl mx-auto px-16">
+    <div className="flex justify-center h-screen">
+      <div className="flex flex-col">
+        <img
+          className="h-2/3 w-full object-cover object-center"
+          src="./background.png"
+          alt="background image"
+        />
+        <div className=" px-16">
           <HoverEffect items={projects} />
         </div>
       </div>
@@ -18,22 +23,22 @@ export default App;
 export const projects = [
   {
     title: "Embassy Crest",
-    logo: "./react.svg",
+    logo: "./one.png",
     link: "embassy",
   },
   {
     title: "BTG",
-    logo: "./vite.svg",
+    logo: "./two.png",
     link: "btg",
   },
   {
     title: "Pune 4,5 & 6",
-    logo: "./react.svg",
+    logo: "./three.png",
     link: "pune",
   },
   {
     title: "Pune 7th floor",
-    logo: "./vite.svg",
+    logo: "./four.png",
     link: "7th",
   },
 ];

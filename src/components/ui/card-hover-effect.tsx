@@ -51,7 +51,7 @@ export const HoverEffect = ({
   };
 
   return (
-    <div className={cn("grid grid-cols-2 py-10", className)}>
+    <div className={cn("grid grid-cols-4 py-8", className)}>
       {items.map((item, idx) => (
         <div
           key={item?.link}
@@ -78,15 +78,15 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card
-            className={
-              item.link === "embassy"
-                ? "bg-[#f7d9aa]"
-                : item.link === "btg"
-                  ? "bg-[#8ac6d1]"
-                  : item.link === "pune"
-                    ? "bg-[#b58fe0]"
-                    : "bg-[#7fc08d]"
-            }
+          // className={
+          //   item.link === "embassy"
+          //     ? "bg-[#f7d9aa]"
+          //     : item.link === "btg"
+          //       ? "bg-[#8ac6d1]"
+          //       : item.link === "pune"
+          //         ? "bg-[#b58fe0]"
+          //         : "bg-[#7fc08d]"
+          // }
           >
             <CardImage src={item.logo} link={item.link} />
             <CardTitle>{item.title}</CardTitle>
@@ -111,12 +111,12 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 group-active:scale-95 group-active:rounded-2xl transform object-cover transition duration-200 relative z-20",
+        "rounded-2xl h-full w-full overflow-hidden border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 group-active:scale-95 group-active:rounded-2xl transform object-cover transition duration-200 relative z-20",
         className,
       )}
     >
       <div className="relative z-50">
-        <div className="p-4">{children}</div>
+        <div className="p-2">{children}</div>
       </div>
     </div>
   );
@@ -129,12 +129,7 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4
-      className={cn(
-        "text-[#333333] text-center font-bold tracking-wide mt-4",
-        className,
-      )}
-    >
+    <h4 className={cn(" text-center font-bold tracking-wide mt-4", className)}>
       {children}
     </h4>
   );
