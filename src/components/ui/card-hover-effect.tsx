@@ -40,7 +40,7 @@ export const HoverEffect = ({
     if (!appPath) {
       const selectedPath = await open({
         title: "Select Application",
-        filters: [{ name: "Executable Files", extensions: ["exe"] }],
+        filters: [{ name: "Executable Files", extensions: ["exe", "msi"] }],
         directory: false,
       });
       if (selectedPath) {
