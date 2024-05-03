@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
 import { Store } from "tauri-plugin-store-api";
 import { open } from "@tauri-apps/api/dialog";
+import { open as openShell } from "@tauri-apps/api/shell";
 
 export const colors = ["#f7d9aa", "#8ac6d1"];
 
@@ -47,7 +48,13 @@ export const HoverEffect = ({
         await store.set(idx.toString(), selectedPath);
         await store.save();
       }
-    } else openDesktopApp(appPath);
+    } else {
+      try {
+        await openShell(appPath);
+      } catch (e) {
+        console.log(e);
+      }
+    }
   };
 
   return (
