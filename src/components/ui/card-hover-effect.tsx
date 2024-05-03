@@ -1,7 +1,6 @@
 import { cn } from "../../utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-import { invoke } from "@tauri-apps/api/tauri";
 import { Store } from "tauri-plugin-store-api";
 import { open } from "@tauri-apps/api/dialog";
 import { open as openShell } from "@tauri-apps/api/shell";
@@ -20,16 +19,6 @@ export const HoverEffect = ({
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const openDesktopApp = (appPath: string) => {
-    invoke("open_desktop_app_handler", { appPath })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   const handleButtonClick = async (idx: number) => {
     console.log("opening");
