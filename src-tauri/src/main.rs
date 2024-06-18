@@ -18,7 +18,13 @@ fn open_desktop_app(app_path: String) -> Result<(), String> {
 
 #[cfg(target_os = "windows")]
 fn open_desktop_app(app_path: String) -> Result<(), String> {
-    Command::new(app_path).spawn().expect("Failed to open app");
+    match Command::new(app_path).spawn() {
+        Ok(_) => {
+            println!("Program launched successfully.");
+            Ok(())
+        }
+        Err(err) => Err(format!("Failed to launch program: {}", err)),
+    }
 }
 
 #[tauri::command]
