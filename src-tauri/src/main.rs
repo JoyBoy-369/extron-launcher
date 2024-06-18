@@ -1,17 +1,9 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use std::fs::{self, File};
-use std::io::{self, BufReader};
-use std::path::Path;
+use std::io::{self};
+use tauri::api::process::Command;
 use tauri::AppHandle;
-use tauri::{
-    api::{
-        file::{ArchiveFormat, Extract},
-        path::app_data_dir,
-        process::{Command, CommandEvent},
-    },
-    Manager,
-};
 
 #[cfg(target_os = "macos")]
 fn open_desktop_app(app_path: String) -> Result<(), String> {
@@ -32,12 +24,6 @@ fn open_desktop_app(app_path: String) -> Result<(), String> {
 #[tauri::command]
 fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
-#[tauri::command]
-fn open_desktop_app_handler(app_path: String) {
-    println!("Opening desktop app");
-    open_desktop_app(app_path);
 }
 
 #[tauri::command]
@@ -127,11 +113,7 @@ fn main() {
 
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![
-            open_program,
-            open_desktop_app_handler,
-            greet
-        ])
+        .invoke_handler(tauri::generate_handler![open_program, greet])
         .plugin(tauri_plugin_store::Builder::default().build())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

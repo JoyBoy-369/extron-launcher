@@ -1,9 +1,6 @@
 import { cn } from "../../utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-import { Store } from "tauri-plugin-store-api";
-import { open } from "@tauri-apps/api/dialog";
-import { open as openShell } from "@tauri-apps/api/shell";
 import { invoke } from "@tauri-apps/api/tauri";
 
 export const colors = ["#f7d9aa", "#8ac6d1"];
@@ -22,32 +19,6 @@ export const HoverEffect = ({
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const handleButtonClick = async (idx: number) => {
-    console.log("opening");
-    const store = new Store("app-settings.json");
-    // store.clear();
-    const appPath: string | null = await store.get(idx.toString());
-    console.log(appPath);
-
-    if (!appPath) {
-      const selectedPath = await open({
-        title: "Select Application",
-        filters: [{ name: "Executable Files", extensions: ["exe", "msi"] }],
-        directory: false,
-      });
-      if (selectedPath) {
-        await store.set(idx.toString(), selectedPath);
-        await store.save();
-      }
-    } else {
-      try {
-        await openShell(appPath);
-      } catch (e) {
-        console.log(e);
-      }
-    }
-  };
 
   const openProgram = async (index: number) => {
     try {
