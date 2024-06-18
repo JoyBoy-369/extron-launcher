@@ -21,7 +21,9 @@ jobs:
       - name: Install Git LFS
         run: |
           git lfs install
-          git lfs pull  
+          git lfs pull 
+      - name: Checkout LFS objects
+        run: git lfs checkout
       - name: setup node
         uses: actions/setup-node@v3
         with:
@@ -36,8 +38,8 @@ jobs:
             const { data } = await github.rest.repos.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag_name: `app-v1.8`,
-              name: `Extron Launcher v1.8`,
+              tag_name: `app-v1.9`,
+              name: `Extron Launcher v1.9`,
               body: 'Take a look at the assets to download and install this app.',
               draft: true,
               prerelease: false
@@ -62,6 +64,8 @@ jobs:
         run: |
           git lfs install
           git lfs pull
+      - name: Checkout LFS objects
+        run: git lfs checkout
       - name: setup node
         uses: actions/setup-node@v3
         with:
