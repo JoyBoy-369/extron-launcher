@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import { Store } from "tauri-plugin-store-api";
 import { open } from "@tauri-apps/api/dialog";
 import { open as openShell } from "@tauri-apps/api/shell";
+import { invoke } from "@tauri-apps/api/tauri";
 
 export const colors = ["#f7d9aa", "#8ac6d1"];
+
+const programs = ["ShareLink/ShareLink.exe", "ShareLink Pro/ShareLink Pro.exe"];
 
 export const HoverEffect = ({
   items,
@@ -46,6 +49,16 @@ export const HoverEffect = ({
     }
   };
 
+  const openProgram = async (index: number) => {
+    try {
+      const programPath = index % 2 === 0 ? programs[0] : programs[1];
+      await invoke("open_program", { programName: programPath });
+      console.log("Program opened successfully.");
+    } catch (error) {
+      console.error("Error opening program:", error);
+    }
+  };
+
   return (
     <div className={cn("grid grid-cols-4 py-8", className)}>
       {items.map((item, idx) => (
@@ -54,7 +67,7 @@ export const HoverEffect = ({
           className="relative group  block p-4 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
-          onClick={() => handleButtonClick(idx)}
+          onClick={() => openProgram(idx)}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
