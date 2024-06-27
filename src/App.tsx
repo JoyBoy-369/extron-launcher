@@ -3,16 +3,29 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="flex justify-center h-screen">
-      <div className="flex flex-col">
+    <div className="relative flex justify-center h-screen">
+      <div className="absolute top-0 w-full bg-black p-8 z-10">
         <img
-          className="h-2/3 w-full object-cover object-center"
-          src="./background.png"
-          alt="background image"
+          className=" w-24 h-auto object-cover mx-auto"
+          src="./mb-logo.png"
+          alt="mb logo image"
         />
-        <div className=" px-16">
-          <HoverEffect items={projects} />
-        </div>
+      </div>
+      <img
+        className=" w-full object-cover "
+        src="./background.jpg"
+        alt="background image"
+      />
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute bottom-0 flex w-full px-16">
+        <HoverEffect items={projects} />
+      </div>
+      <div className="absolute bottom-0 right-0">
+        <img
+          className=" w-24 h-auto object-cover "
+          src="./io-logo.png"
+          alt="io logo image"
+        />
       </div>
     </div>
   );
@@ -23,22 +36,22 @@ export default App;
 export const projects = [
   {
     title: "Embassy Crest",
-    logo: "./one.png",
+    logo: "./icon.png",
     link: "embassy",
   },
   {
     title: "BTG",
-    logo: "./two.png",
+    logo: "./icon.png",
     link: "btg",
   },
   {
     title: "Pune 4,5 & 6",
-    logo: "./three.png",
+    logo: "./icon.png",
     link: "pune",
   },
   {
     title: "Pune 7th floor",
-    logo: "./four.png",
+    logo: "./icon.png",
     link: "7th",
   },
 ];

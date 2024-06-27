@@ -31,7 +31,7 @@ export const HoverEffect = ({
   };
 
   return (
-    <div className={cn("grid grid-cols-4 py-8", className)}>
+    <div className={cn(" w-full grid grid-cols-4 py-8", className)}>
       {items.map((item, idx) => (
         <div
           key={item?.link}
@@ -91,7 +91,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full overflow-hidden border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 group-active:scale-95 group-active:rounded-2xl transform object-cover transition duration-200 relative z-20",
+        "rounded-2xl h-full w-full overflow-hidden border border-transparent dark:border-transparent  group-active:scale-95 group-active:rounded-2xl transform object-cover transition duration-200 relative z-20",
         className,
       )}
     >
@@ -116,7 +116,9 @@ export const CardTitle = ({
 };
 
 export const CardImage = ({ src, link }: { src: string; link: string }) => {
-  return <img src={src} className={`logo ${link} mx-auto`} alt="logo" />;
+  return (
+    <img src={src} className={`logo ${link} mx-auto object-cover`} alt="logo" />
+  );
 };
 
 export const CardDescription = ({
