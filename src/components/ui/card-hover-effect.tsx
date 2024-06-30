@@ -5,7 +5,10 @@ import { invoke } from "@tauri-apps/api/tauri";
 
 export const colors = ["#f7d9aa", "#8ac6d1"];
 
-const programs = ["ShareLink/ShareLink.exe", "ShareLink200/ShareLink.exe"];
+const programs = [
+  "ShareLink200/ShareLink.exe",
+  "ShareLink Pro/ShareLink Pro.exe",
+];
 
 export const HoverEffect = ({
   items,
