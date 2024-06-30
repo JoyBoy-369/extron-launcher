@@ -22,7 +22,7 @@
     "windows": [
       {
         "title": "extron-launcher",
-        "fullscreen": true
+        "maximized": true
       }
     ],
     "security": {
