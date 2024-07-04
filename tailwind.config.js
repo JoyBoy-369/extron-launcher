@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        customFont: ["MB CORPS", "sans-serif"],
+        // Add more custom font families as needed
+      },
+    },
   },
   plugins: [],
 };

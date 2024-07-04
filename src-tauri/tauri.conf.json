@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "extron-launcher",
+    "productName": "Wireless Presenter",
     "version": "0.0.1"
   },
   "tauri": {
@@ -21,7 +21,7 @@
     },
     "windows": [
       {
-        "title": "extron-launcher",
+        "title": "Wireless Presenter",
         "maximized": true
       }
     ],
