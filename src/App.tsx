@@ -17,7 +17,7 @@ function App() {
         alt="background image"
       />
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div className="absolute bottom-0 flex w-full px-16">
+      <div className="absolute bottom-0 flex w-full  bg-black px-16 ">
         <HoverEffect items={projects} />
       </div>
       <div className="absolute bottom-0 right-0">

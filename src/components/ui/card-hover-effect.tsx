@@ -34,7 +34,7 @@ export const HoverEffect = ({
   };
 
   return (
-    <div className={cn(" w-full grid grid-cols-4 py-8", className)}>
+    <div className={cn(" w-full grid grid-cols-4", className)}>
       {items.map((item, idx) => (
         <div
           key={item?.link}
@@ -99,7 +99,7 @@ export const Card = ({
       )}
     >
       <div className="relative z-50">
-        <div className="p-2">{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   );
